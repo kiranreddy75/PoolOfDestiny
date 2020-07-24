@@ -24,10 +24,10 @@ if(error) {
 return <div>Error! {error.message}</div>
 }
 
-// return <TableData tableData={data.Pool}/>
-return data.Pool.map((data) => (
-  <TableData tableData={data} />
-));
+return <TableData tableData={data.Pool}/>
+// return data.Pool.map((data) => (
+//   <TableData tableData={data} />
+// ));
 };
 
 export default TableSubscription;

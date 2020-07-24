@@ -9,10 +9,64 @@ class TableData extends Component {
   }
 
   render() {
-    const info = this.state.tableData;
+  // fixedfee: 700000000
+  // margin: 0.05
+  // pledge: 90000000000
+  // poolid: "\x402cc0049e163c9aaa0cb49e088ba194d09307cf40e2d09180ecc8cc"
+  // poolname: "AtlasStakePool"
+    const tableData = this.state.tableData;
+    console.log(tableData);
+    const poolData = [];
+    if(tableData !== undefined && tableData !== null) {
+      tableData.map((data) => {
+        let fixedfee;
+    if (!data.fixedfee) {
+      fixedfee = "N/A";
+    } else {
+      fixedfee = data.fixedfee;
+    }
+    let margin;
+    if (!data.margin) {
+      margin = "N/A";
+    } else {
+      margin = data.margin;
+    }
+    let pledge;
+    if (!data.pledge) {
+      pledge = "N/A";
+    } else {
+      pledge = data.pledge;
+    }
+    let poolid;
+    if (!data.poolid) {
+      poolid = "N/A";
+    } else {
+      poolid = data.poolid.replace("\\x", ' ');
+    }
+    let poolname;
+    if (!data.poolname) {
+      poolname = "N/A";
+    } else {
+      poolname = data.poolname;
+    }
+    return poolData.push({
+      fixedfee: fixedfee,
+      margin: margin,
+      pledge: pledge,
+      poolid: poolid,
+      poolname: poolname
+    })
+
+      });
+      
+    
+    }
+
+    console.log(poolData);
+
     return (
       <React.Fragment>
-        {info !== undefined && info !== null && (
+        {poolData !== undefined && poolData !== null && (
           <div className="table-responsive">
             <table className="table table-bordered table-sm">
               <thead className="thead-dark">
@@ -25,13 +79,15 @@ class TableData extends Component {
                 </tr>
               </thead>
               <tbody className="table-striped">
-                <tr key={info._id}>
-                  <td>{info.poolname}</td>
-                  <td>{info.pledge}</td>
-                  <td>{info.margin}</td>
-                  <td>{info.fixedfee}</td>
-                  <td>{info.poolid}</td>
+                {poolData.map(row => (
+                  <tr key={row._id}>
+                  <td style={{ textTransform: 'uppercase'}}>{row.poolname}</td>
+                  <td>{row.pledge}</td>
+                  <td>{row.margin}</td>
+                  <td>{row.fixedfee}</td>
+                  <td>{row.poolid}</td>
                 </tr>
+                ))}
               </tbody>
             </table>
           </div>
