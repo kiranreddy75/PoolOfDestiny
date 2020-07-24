@@ -9,13 +9,7 @@ class TableData extends Component {
   }
 
   render() {
-  // fixedfee: 700000000
-  // margin: 0.05
-  // pledge: 90000000000
-  // poolid: "\x402cc0049e163c9aaa0cb49e088ba194d09307cf40e2d09180ecc8cc"
-  // poolname: "AtlasStakePool"
     const tableData = this.state.tableData;
-    console.log(tableData);
     const poolData = [];
     if(tableData !== undefined && tableData !== null) {
       tableData.map((data) => {
@@ -56,14 +50,8 @@ class TableData extends Component {
       poolid: poolid,
       poolname: poolname
     })
-
-      });
-      
-    
+      }); 
     }
-
-    console.log(poolData);
-
     return (
       <React.Fragment>
         {poolData !== undefined && poolData !== null && (
