@@ -14,34 +14,34 @@ class TableData extends Component {
     if(tableData !== undefined && tableData !== null) {
       tableData.map((data) => {
         let fixedfee;
-    if (!data.fixedfee) {
-      fixedfee = "N/A";
-    } else {
+    if (data.fixedfee !== undefined && data.fixedfee !== null) {
       fixedfee = data.fixedfee;
+    } else {
+      fixedfee = "N/A";
     }
     let margin;
-    if (!data.margin) {
-      margin = "N/A";
-    } else {
+    if (data.margin !== undefined && data.margin !== null) {
       margin = data.margin;
+    } else {
+      margin = "N/A";
     }
     let pledge;
-    if (!data.pledge) {
-      pledge = "N/A";
-    } else {
+    if (data.pledge !== undefined && data.pledge !== null) {
       pledge = data.pledge;
+    } else {
+      pledge = "N/A";
     }
     let poolid;
-    if (!data.poolid) {
-      poolid = "N/A";
-    } else {
+    if (data.poolid !== undefined && data.poolid !== null) {
       poolid = data.poolid.replace("\\x", ' ');
+    } else {
+      poolid = "N/A";
     }
     let poolname;
-    if (!data.poolname) {
-      poolname = "N/A";
-    } else {
+    if (data.poolname !== undefined && data.poolname !== null) {
       poolname = data.poolname;
+    } else {
+      poolname = "N/A";
     }
     return poolData.push({
       fixedfee: fixedfee,
